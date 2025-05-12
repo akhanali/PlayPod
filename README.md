@@ -13,25 +13,25 @@ PlayPod — это full-stack музыкальное приложение, в к
 ```bash
 git clone https://github.com/your-username/playpod.git
 cd playpod
+```
 
 ### 2. Установите зависимости и запустите фронтенд
-
+```bash
 npm install
 npm start
-
+```
 Фронтенд работает по адресу: http://localhost:3000
 
 
 
 ### 3. Установите и запустите бэкенд
-
+```bash
 cd server
 npm install
 node index.js
+```
 
 Бэкенд работает по адресу: http://localhost:5000
-
-```
 
 ## Процесс проектирования и разработки
 - Feed страница реализована на iTunes RSS API, отображает топ-альбомы
