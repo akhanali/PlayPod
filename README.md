@@ -78,5 +78,5 @@ node index.js
 
 ## Видео-демо
 
-Смотрите короткое демо-видео (2–3 минуты) по ссылке:  
+Kороткое демо-видео :  
 [https://youtu.be/mzf9sFsFRI8](https://youtu.be/mzf9sFsFRI8)
