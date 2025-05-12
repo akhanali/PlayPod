@@ -83,7 +83,7 @@ export default function Search() {
                 {songs.map((track) => {
                     const fav = isFavorited(track.trackId);
 
-                    return ( // ✅ ← THIS is what was missing!
+                    return ( 
                         <div key={track.trackId} className="track-item">
                             <div className="track-header">
                                 <p className="track-name">{track.trackName}</p>

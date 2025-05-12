@@ -41,6 +41,7 @@ export default function Favorites() {
             <div key={track.trackId} className="track-item">
               <div className="track-header">
                 <p className="track-name">{track.trackName}</p>
+                <p className="track-artist">{track.artistName}</p> 
                 <div className="track-actions">
                   <IconContext.Provider value={{ size: "20px", color: "#ffc5a1" }}>
 

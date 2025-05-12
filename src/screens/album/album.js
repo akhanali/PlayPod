@@ -44,6 +44,7 @@ export default function AlbumPage() {
                         <div key={track.trackId} className="track-item">
                             <div className="track-header">
                                 <p className="track-name">{track.trackName}</p>
+                                <p className="track-artist">{track.artistName}</p> 
                                 <div className="track-actions">
                                     <button
                                         onClick={() => {

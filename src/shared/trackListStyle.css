@@ -31,6 +31,12 @@
     margin-bottom: 4px;
 }
 
+.track-artist {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: -4px;
+}
+
 .track-header p {
     color: #fdf6f2;
 }
