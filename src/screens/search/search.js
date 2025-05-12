@@ -3,6 +3,16 @@ import axios from "axios";
 import "./search.css";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from 'react-icons/fa';
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import { FaPlay } from "react-icons/fa";
+import { IconContext } from "react-icons";
+
+import { usePlayer } from "../../context/playerContext";
+import {
+    isFavorited,
+    addFavorite,
+    removeFavorite,
+} from "../../utils/favorites";
 
 
 export default function Search() {
@@ -11,14 +21,23 @@ export default function Search() {
     const [searched, setSearched] = useState(false);
     const navigate = useNavigate();
 
+    const { setTrack } = usePlayer();
+    const [songs, setSongs] = useState([]);
     const handleSearch = async () => {
         if (!query.trim()) return;
 
         try {
-            const res = await axios.get("http://localhost:5000/api/search", {
-                params: { term: query },
-            });
-            setAlbums(res.data);
+            const [albumRes, songRes] = await Promise.all([
+                axios.get("http://localhost:5000/api/search", {
+                    params: { term: query },
+                }),
+                axios.get("http://localhost:5000/api/search-songs", {
+                    params: { term: query },
+                }),
+            ]);
+
+            setAlbums(albumRes.data);
+            setSongs(songRes.data);
             setSearched(true);
         } catch (e) {
             console.error("Search failed", e);
@@ -55,6 +74,44 @@ export default function Search() {
                         <p className="album-artist">{album.artistName}</p>
                     </div>
                 ))}
+            </div>
+            <h3>Matching Songs</h3>
+            <div className="track-list">
+                {songs.length === 0 && searched && (
+                    <p className="no-results">No matching songs found</p>
+                )}
+                {songs.map((track) => {
+                    const fav = isFavorited(track.trackId);
+
+                    return ( // ✅ ← THIS is what was missing!
+                        <div key={track.trackId} className="track-item">
+                            <div className="track-header">
+                                <p className="track-name">{track.trackName}</p>
+                                <p className="track-artist">{track.artistName}</p> 
+                                <IconContext.Provider value={{ size: "20px", color: "#ffc5a1" }}>
+                                    <div className="track-actions">
+                                        <button
+                                            onClick={() => {
+                                                setTrack(track);
+                                                navigate("/player");
+                                            }}
+                                        >
+                                            <FaPlay />
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                fav ? removeFavorite(track.trackId) : addFavorite(track);
+                                                setSongs((s) => [...s]);
+                                            }}
+                                        >
+                                            {fav ? <MdFavorite /> : <MdFavoriteBorder />}
+                                        </button>
+                                    </div>
+                                </IconContext.Provider>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

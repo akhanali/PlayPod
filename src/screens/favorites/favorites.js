@@ -29,7 +29,12 @@ export default function Favorites() {
     <div className='screen-container'>
       <h2>My Favorite Tracks</h2>
       {favorites.length === 0 ? (
-        <p>No favorites yet 💔</p>
+        <IconContext.Provider value={{ size: "28px", color: "#ffc5a1" }}>
+          <div className="no-favorites">
+            <MdFavoriteBorder />
+            <p>No favorites yet</p>
+          </div>
+        </IconContext.Provider>
       ) : (
         <div className="track-list">
           {favorites.map((track) => (
@@ -37,20 +42,22 @@ export default function Favorites() {
               <div className="track-header">
                 <p className="track-name">{track.trackName}</p>
                 <div className="track-actions">
-                  <button onClick={() => handleUnfavorite(track.trackId)}>
-                    <MdFavorite />
-                  </button>                  
-                  <button
-                    onClick={() => {
-                      setTrack(track);
-                      navigate("/player");
-                    }}
-                  >
-                    <IconContext.Provider value={{ size: "20px", color: "#ffc5a1" }}>
+                  <IconContext.Provider value={{ size: "20px", color: "#ffc5a1" }}>
+
+                    <button onClick={() => handleUnfavorite(track.trackId)}>
+                      <MdFavorite />
+                    </button>
+                    <button
+                      onClick={() => {
+                        setTrack(track);
+                        navigate("/player");
+                      }}
+                    >
                       <FaPlay />
-                    </IconContext.Provider>
-                  </button>
+                    </button>
+                  </IconContext.Provider>
                 </div>
+
               </div>
             </div>
           ))}

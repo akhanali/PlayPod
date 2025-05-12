@@ -60,6 +60,26 @@ app.get("/api/search", async (req, res) => {
                 term,
                 entity: "album",
                 media: "music",
+                limit: 50,
+            },
+        });
+
+        res.json(response.data.results);
+    } catch (e) {
+        res.status(500).json({ error: "Search failed" });
+    }
+});
+
+app.get("/api/search-songs", async (req, res) => {
+    const { term } = req.query;
+    if (!term) return res.status(400).json({ error: "Missing search term" });
+
+    try {
+        const response = await axios.get("https://itunes.apple.com/search", {
+            params: {
+                term,
+                entity: "song",
+                media: "music",
                 limit: 25,
             },
         });
