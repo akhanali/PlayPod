@@ -1,111 +1,72 @@
-# Getting Started with Create React App
+# PlayPod — Full-Stack Music Player App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-
-
-
-PlayPod — Your Personal Music Space
-
-A stylish full-stack music player app that lets you explore top albums, search music by artist or song, listen to 30-second previews, and build your own favorites list. Built for those who can't imagine a day without sound 🎵
+PlayPod — это full-stack музыкальное приложение, в котором пользователи могут просматривать топ-альбомы, искать музыку по артисту или названию песни, слушать 30-секундные превью и сохранять избранные треки. Построено на React и Node.js с упором на быстрый, чистый пользовательский интерфейс и удовольствие от прослушивания.
 
 ---
 
-## 🚀 Features
+## Установка и запуск
 
-- 🔥 Feed with top 20 albums from iTunes
-- 🔍 Live search (artist, song, album)
-- 🎵 Audio player page with full-screen playback
-- ❤️ Favorite any track (saved in localStorage)
-- 🧠 Auto-persistent user profile photo (uploadable)
-- 🌓 Responsive and stylish UI with React + CSS
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend:** React, React Router, React Icons
-- **Backend:** Node.js, Express
-- **API:** iTunes RSS & Search API (through backend)
-- **Styling:** Custom CSS, shared component styles
-- **Persistence:** localStorage (favorites, profile image)
-
-> 📌 All API calls to external services go through the Express backend.
-
----
-
-## 🔧 Installation & Running Locally
-
-### 1. Clone the repo
+### 1. Клонируйте репозиторий
 
 ```bash
-git clone https://github.com/yourusername/playpod.git
+git clone https://github.com/your-username/playpod.git
 cd playpod
+
+### 2. Установите зависимости и запустите фронтенд
+
+npm install
+npm start
+
+Фронтенд работает по адресу: http://localhost:3000
+
+### 3. Установите и запустите бэкенд
+
+cd server
+npm install
+node index.js
+
+Бэкенд работает по адресу: http://localhost:5000
+
+
+## Процесс проектирования и разработки
+- Feed страница реализована на iTunes RSS API, отображает топ-альбомы
+- Поиск по артисту и песне с помощью iTunes Search API
+- Cтраница плеера, переход к которой происходит через React Context
+- Избранные треки сохраняются в localStorage
+- Поддержка смены изображения профиля через пользовательский выбор и сохранение
+
+---
+
+## Уникальные подходы и методологии
+
+- Использование API iTunes через собственный backend-прокси
+- Использование React Context API для передачи текущего трека между страницами
+- Управление избранными песнями и аватаром пользователя через localStorage без регистрации
+
+
+## Компромиссы
+
+| Решение                                      | Обоснование                                                |
+|----------------------------------------------|-------------------------------------------------------------|
+| Использование localStorage вместо базы данных | Простая реализация, соответствие требованиям задания        |
+| Отсутствие логина и регистрации               | Упрощение UI/UX и структуры приложения                      |
+| Использование только 30-секундных превью      | Ограничения API iTunes, но достаточно для демонстрации     |
+| Отдельная страница плеера, а не мини-плеер    | Быстрая реализация, более чистая навигация                 |
+
+
+## Известные проблемы и ограничения
+
+- Превью треков ограничены 30 секундами (ограничение iTunes)
+- При некоторых поисках (редкие артисты/песни) результат может быть пустым
+- Нет режима радио, истории прослушиваний или создания плейлистов (возможное расширение)
+
+---
+
+## Почему выбран этот стек
+
+- **React** - удобство разработки интерфейса
+- **Express (Node.js)** — быстрый и лёгкий backend с минимальной настройкой
+- **iTunes API** — бесплатный, без авторизации, стабильный источник данных
+- **CSS вручную** — полный контроль над визуальным стилем
