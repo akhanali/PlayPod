@@ -1,0 +1,46 @@
+.album-page {
+    padding: 20px;
+    color: white;
+}
+
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.track-item {
+    background: #1e1e1e;
+    padding: 12px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.track-name {
+    color: #fff;
+}
+
+.track-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track-header button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.track-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.track-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

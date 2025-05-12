@@ -1,0 +1,39 @@
+.feed-container {
+    padding: 20px;
+    color: white;
+}
+
+.album-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-left: 15px;
+}
+
+.album-card {
+    background-color: #181818;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.album-card:hover {
+    transform: scale(1.05);
+}
+
+.album-card img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.album-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.album-artist {
+    font-size: 0.8rem;
+    color: #fff;
+}

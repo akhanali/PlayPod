@@ -1,0 +1,54 @@
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+}
+
+.track-item {
+    background: #24344d;
+    padding: 16px 20px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.track-item:hover {
+    transform: scale(1.01);
+    background: #34495e;
+}
+
+.track-header {
+    flex-grow: 1;
+}
+
+.track-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #fbe3d1;
+    margin-bottom: 4px;
+}
+
+.track-header p {
+    color: #fdf6f2;
+}
+
+.track-actions button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffc5a1;
+    /* soft coral tone */
+    transition: all 0.2s ease, color 0.2s ease;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.track-actions button:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+}

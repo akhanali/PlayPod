@@ -68,3 +68,44 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+PlayPod — Your Personal Music Space
+
+A stylish full-stack music player app that lets you explore top albums, search music by artist or song, listen to 30-second previews, and build your own favorites list. Built for those who can't imagine a day without sound 🎵
+
+---
+
+## 🚀 Features
+
+- 🔥 Feed with top 20 albums from iTunes
+- 🔍 Live search (artist, song, album)
+- 🎵 Audio player page with full-screen playback
+- ❤️ Favorite any track (saved in localStorage)
+- 🧠 Auto-persistent user profile photo (uploadable)
+- 🌓 Responsive and stylish UI with React + CSS
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, React Router, React Icons
+- **Backend:** Node.js, Express
+- **API:** iTunes RSS & Search API (through backend)
+- **Styling:** Custom CSS, shared component styles
+- **Persistence:** localStorage (favorites, profile image)
+
+> 📌 All API calls to external services go through the Express backend.
+
+---
+
+## 🔧 Installation & Running Locally
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/yourusername/playpod.git
+cd playpod
