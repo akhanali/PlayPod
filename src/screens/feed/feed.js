@@ -14,7 +14,8 @@ export default function Feed() {
   useEffect(() => {
     async function fetchTopAlbums() {
       try {
-        const res = await axios.get("http://localhost:5000/api/top-albums");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/top-albums`);
+
         setAlbums(res.data);
       } catch (err) {
         console.error("Error fetching top albums", err);

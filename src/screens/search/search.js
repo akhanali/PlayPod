@@ -28,13 +28,13 @@ export default function Search() {
 
         try {
             const [albumRes, songRes] = await Promise.all([
-                axios.get("http://localhost:5000/api/search", {
-                    params: { term: query },
+                axios.get(`${process.env.REACT_APP_API_URL}/api/search`, {
+                  params: { term: query },
                 }),
-                axios.get("http://localhost:5000/api/search-songs", {
-                    params: { term: query },
+                axios.get(`${process.env.REACT_APP_API_URL}/api/search-songs`, {
+                  params: { term: query },
                 }),
-            ]);
+            ]);              
 
             setAlbums(albumRes.data);
             setSongs(songRes.data);

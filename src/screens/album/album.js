@@ -23,7 +23,7 @@ export default function AlbumPage() {
     useEffect(() => {
         async function fetchTracks() {
             try {
-                const res = await axios.get("http://localhost:5000/api/album-tracks", {
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/album-tracks`, {
                     params: { id }
                 });
                 setTracks(res.data);
@@ -45,6 +45,7 @@ export default function AlbumPage() {
                             <div className="track-header">
                                 <p className="track-name">{track.trackName}</p>
                                 <p className="track-artist">{track.artistName}</p> 
+
                                 <div className="track-actions">
                                     <button
                                         onClick={() => {
